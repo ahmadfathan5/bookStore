@@ -79,7 +79,11 @@ class OrderController extends Controller
      */
     public function show()
     {
-        $data_order = Order::all();
+        $data_order = Order::join('order_detail', 'order_detail.order_id', '=', 'orders.id')
+            ->join('books', 'order_detail.book_id', '=', 'books.id')
+            ->join('users', 'orders.user_id', '=', 'users.id')
+            ->select('users.name as nama', 'orders.order_date', 'books.name as judul', 'books.author', 'books.price', 'order_detail.quantity')
+            ->get();
         return view('order', compact('data_order'));
     }
 

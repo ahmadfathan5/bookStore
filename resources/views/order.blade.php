@@ -21,7 +21,10 @@
                     <th scope="col">user</th>
                     <th scope="col">order_date</th>
                     <th scope="col">Judul_buku</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Harga</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,10 +34,13 @@
                 @foreach ($data_order as $data )
                 <tr>
                     <th scope="row">{{ $no++ }}</th>
-                    <td>{{ $data['user_id'] }}</td>
-                    <td>{{ $data['order_date'] }}</td>
-                    <td>{{ $no++  }}</td>
-                    <td>{{ $no++  }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->order_date }}</td>
+                    <td>{{ $data->judul }}</td>
+                    <td>{{ $data->author }}</td>
+                    <td>Rp{{ $data->price }}</td>
+                    <td>{{ $data->quantity }}</td>
+                    <td>Rp{{ $data->quantity * $data->price }}</td> {{--masih hard code--}}
                     {{-- <td>
                         <a href="/book/edit/{{$data->id}}" class="btn btn-warning">edit</a>
                         <form action="/books/{{ $data->id }}" method="post">

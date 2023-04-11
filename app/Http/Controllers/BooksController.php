@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Books;
 use App\Models\Categories;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
 {
@@ -13,7 +14,10 @@ class BooksController extends Controller
      */
     public function index()
     {
-        $data_buku = Books::All();
+        $data_buku = DB::table('books')
+            ->join('categories', 'books.category_id', '=', 'categories.id')
+            ->select('books.*', 'categories.name as genre')
+            ->get();
         return View('book', compact('data_buku'));
     }
 

@@ -35,13 +35,13 @@
                 @foreach ($data_buku as $data )
                 <tr>
                     <th scope="row">{{ $no++ }}</th>
-                    <td>{{ $data['cover'] }}</td>
-                    <td>{{ $data['kode'] }}</td>
-                    <td>{{ $data['name'] }}</td>
-                    <td>{{ $data['year'] }}</td>
-                    <td>{{ $data['author'] }}</td>
-                    <td>{{ $data['category_id'] }}</td>
-                    <td>{{ $data['price'] }}</td>
+                    <td>{{ $data->cover }}</td>
+                    <td>{{ $data->kode }}</td>
+                    <td>{{ $data->name }}</td>
+                    <td>{{ $data->year }}</td>
+                    <td>{{ $data->author }}</td>
+                    <td>{{ $data->genre }}</td>
+                    <td>{{ $data->price }}</td>
                     <td>
                         <a href="/book/edit/{{$data->id}}" class="btn btn-warning">edit</a>
                         <form action="/books/{{ $data->id }}" method="post">

@@ -60,6 +60,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/genres/{id}', [CategoriesController::class, 'update'])->middleware('Only_Admin');
 
     Route::get('/user', [UsersController::class, 'index'])->middleware('Only_Admin');
+    Route::get('/user/edit/{id}', [UsersController::class, 'edit'])->middleware('Only_Admin');
+    Route::put('/userEdit/{id}', [UsersController::class, 'update'])->middleware('Only_Admin');
+    Route::post('/userdelete/{id}', [UsersController::class, 'destroy'])->middleware('Only_Admin');
 
     Route::get('/massage', [MassageController::class, 'index']);
     Route::get('/massage/reply/{id}', [MassageController::class, 'edit'])->middleware('Only_Admin');

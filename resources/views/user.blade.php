@@ -13,7 +13,6 @@
 </header>
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5 card">
-        <a href="#" class="btn btn-primary">Tambah Data</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -39,7 +38,11 @@
                     <td>{{ $data['phone'] }}</td>
                     <td>{{ $data['address'] }}</td>
                     <td>
-                        detail | update | delet
+                        <a href="/user/edit/{{$data->id}}" class="btn btn-warning">edit</a>
+                        <form action="/userdelete/{{ $data->id }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
