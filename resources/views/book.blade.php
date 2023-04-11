@@ -18,7 +18,6 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Cover</th>
                     <th scope="col">Kode</th>
                     <th scope="col">Judul</th>
                     <th scope="col">Tahun</th>
@@ -35,7 +34,6 @@
                 @foreach ($data_buku as $data )
                 <tr>
                     <th scope="row">{{ $no++ }}</th>
-                    <td>{{ $data->cover }}</td>
                     <td>{{ $data->kode }}</td>
                     <td>{{ $data->name }}</td>
                     <td>{{ $data->year }}</td>
